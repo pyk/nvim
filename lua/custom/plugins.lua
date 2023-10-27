@@ -5,6 +5,7 @@ local plugins = {
       ensure_installed = {
         "typescript-language-server",
         "eslint-lsp",
+        "astro-language-server",
       }
     }
   },
