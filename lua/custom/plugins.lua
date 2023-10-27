@@ -1,37 +1,18 @@
 local plugins = {
+  -- [[ Syntax highlighter ]]
   {
-    "williamboman/mason.nvim",
+    "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
+    build = ':TSUpdate',
     opts = {
       ensure_installed = {
-        "typescript-language-server",
-        "eslint-lsp",
-        "astro-language-server",
-      }
-    }
-  },
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
-    end
-  },
-  {
-    "mfussenegger/nvim-lint",
-    event = "VeryLazy",
-    config = function ()
-      require "custom.configs.lint"
-    end
-  },
-  {
-     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        -- defaults 
+        -- defaults
         "vim",
         "lua",
 
-        -- web dev 
+        -- web dev
         "html",
         "css",
         "javascript",
@@ -40,13 +21,84 @@ local plugins = {
         "json",
         "astro",
         -- "vue", "svelte",
+        --
+
+        -- writing
+        "markdown",
 
         -- low level
         -- "c",
         -- "zig"
       },
+      autotag = {enable = true}
     }
+  },
+
+  -- [[ Binary package manager ]]
+  -- Useful for installing lsp, formatter & linter
+  {
+    "williamboman/mason.nvim",
+    dependencies = {
+      {"williamboman/mason-lspconfig.nvim", opts = {}},
+    },
+    opts = {
+      ensure_installed = {
+        -- linter
+        "eslint_d",
+
+        -- formatter
+        "prettierd"
+      }
+    }
+  },
+
+  -- [[ lsp server runner ]]
+  {
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      -- Useful status updates for LSP
+      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
+      { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
+    },
+    config = function()
+      require "plugins.configs.lspconfig"
+      require "custom.configs.lspconfig"
+    end
+  },
+
+
+  -- [[ Linter runner ]]
+  {
+    "mfussenegger/nvim-lint",
+    event = "VeryLazy",
+    config = function ()
+      require "custom.configs.linter"
+    end
+  },
+
+  -- [[ Formatter runner ]]
+  {
+    "mhartington/formatter.nvim",
+    event = "VeryLazy",
+    opts = function ()
+      return require "custom.configs.formatter"
+    end
+  },
+
+  -- [[ Others ]]
+
+   {
+    "windwp/nvim-ts-autotag",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    config = function ()
+      require('nvim-ts-autotag').setup({
+        -- your config
+      })
+    end,
+    lazy = true,
+    event = "VeryLazy"
+  },
   }
-}
+
 
 return plugins
