@@ -45,9 +45,6 @@ local plugins = {
       ensure_installed = {
         -- linter
         "eslint_d",
-
-        -- formatter
-        "prettierd"
       }
     }
   },
@@ -78,8 +75,20 @@ local plugins = {
 
   -- [[ Formatter runner ]]
   {
-    "mhartington/formatter.nvim",
-    event = "VeryLazy",
+    'stevearc/conform.nvim',
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    keys = {
+      {
+        -- Customize or remove this keymap to your liking
+        "<leader>f",
+        function()
+          require("conform").format({ async = true, lsp_fallback = true })
+        end,
+        mode = "",
+        desc = "Format buffer",
+      },
+    },
     opts = function ()
       return require "custom.configs.formatter"
     end
