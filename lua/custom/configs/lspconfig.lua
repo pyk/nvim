@@ -18,7 +18,9 @@ local servers = {
         disableSuggestions = true
       }
     }
-  }
+  },
+
+  solidity_ls_nomicfoundation = {}
 }
 
 -- Ensure the servers above are installed

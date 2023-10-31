@@ -26,6 +26,7 @@ local plugins = {
         -- writing
         "markdown",
 
+        "solidity",
         -- low level
         -- "c",
         -- "zig"
@@ -42,10 +43,7 @@ local plugins = {
       {"williamboman/mason-lspconfig.nvim", opts = {}},
     },
     opts = {
-      ensure_installed = {
-        -- linter
-        "eslint_d",
-      }
+      ensure_installed = {}
     }
   },
 
