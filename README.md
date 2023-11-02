@@ -36,10 +36,16 @@ Actions:
 Info:
 
 - Don't forget to restart and run `:MasonInstallAll` after adding new lsp, linter or formatter.
-- `eslint_d` linter requires eslint config to work
 
 Keyboard shortcuts:
 
 - `CTRL+n` open file explorer
 - `CTRL+w w` to switch window (e.g. tree view explorer with editor)
 - `Tab` to switch between open files
+- `<SPACE>th` to switch theme
+
+Reset installation:
+
+```
+rm -rf ~/.local/share/nvim
+```

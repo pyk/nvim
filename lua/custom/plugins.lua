@@ -39,11 +39,11 @@ local plugins = {
   -- Useful for installing lsp, formatter & linter
   {
     "williamboman/mason.nvim",
-    dependencies = {
-      {"williamboman/mason-lspconfig.nvim", opts = {}},
-    },
     opts = {
-      ensure_installed = {}
+      ensure_installed = {
+        "lua-language-server",
+        "typescript-language-server",
+      }
     }
   },
 
