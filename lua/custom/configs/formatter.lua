@@ -2,6 +2,7 @@ local M = {
   formatters_by_ft = {
     javascript = {"prettier"},
     json = {"prettier"},
+    jsonc = {"prettier"},
     typescript = {"prettier"},
     markdown = {"prettier" },
     css = {"prettier"},
