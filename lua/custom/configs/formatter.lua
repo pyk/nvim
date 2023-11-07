@@ -4,6 +4,7 @@ local M = {
     json = {"prettier"},
     jsonc = {"prettier"},
     typescript = {"prettier"},
+    typescriptreact = {"prettier"},
     markdown = {"prettier" },
     css = {"prettier"},
     astro = {"prettier"},
