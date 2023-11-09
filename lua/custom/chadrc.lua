@@ -2,7 +2,7 @@
 local M = {}
 
 M.ui = {
-  theme = 'gatekeeper',
+  theme = 'everforest_light',
   hl_override = {
     Normal = {
       -- bg = "#000000"
