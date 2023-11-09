@@ -5,7 +5,7 @@ M.ui = {
   theme = 'gatekeeper',
   hl_override = {
     Normal = {
-      bg = "#000000"
+      -- bg = "#000000"
     }
   }
 }
