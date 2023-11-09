@@ -2,7 +2,7 @@
 local M = {}
 
 M.ui = {
-  theme = 'yoru',
+  theme = 'gatekeeper',
   hl_override = {
     Normal = {
       bg = "#000000"
